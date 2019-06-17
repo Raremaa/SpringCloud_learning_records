@@ -1,0 +1,30 @@
+# Eureka Client中配置defaultZone需注意:
+# 在Eureka Server集群下,建议配置多个地址,用","分隔,但是这样只写一个也行,为了防止某些极端条件建议还是写全
+spring:
+  profiles:
+    active: peer1
+  application:
+    name: eureka_server_cluster
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:2002/eureka/,http://peer2:2003/eureka/
+
+---
+spring:
+  profiles: peer1
+server:
+  port: 2002
+eureka:
+  instance:
+    hostname: peer1
+
+---
+spring:
+  profiles: peer2
+server:
+  port: 2003
+eureka:
+  instance:
+    hostname: peer2
+
