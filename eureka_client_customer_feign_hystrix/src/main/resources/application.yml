@@ -3,7 +3,7 @@ server:
 spring:
   application:
     # 注册到Eureka上的应用名称
-    name: eureka-client-customer-feign
+    name: eureka-client-customer-feign-hystrix
 eureka:
   client:
     serviceUrl:

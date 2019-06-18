@@ -1,0 +1,14 @@
+server:
+  port: 2011
+spring:
+  application:
+    # 注册到Eureka上的应用名称
+    name: eureka-client-zuul
+eureka:
+  client:
+    serviceUrl:
+      # 在Eureka Server集群下,建议配置多个地址,用","分隔,但是这样只写一个也行,为了防止某些极端条件建议还是写全
+      defaultZone: http://localhost:2002/eureka/,http://localhost:2003/eureka/
+  instance:
+    # 将自己IP注册到Eureka Server.默认为false 表示将注册微服务所在操作系统的hostname到Eureka Server
+    prefer-ip-address: true
